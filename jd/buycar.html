@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img{
+				vertical-align: middle;
+				max-height:100px;
+				}
+			tr{
+				text-align: center;
+			}
+			td{
+				min-width:120px;
+			}
+			thead td{
+				border:0;
+				background:deepskyblue;
+				padding:10px 0;
+			}
+			.number{
+				display: inline-block;
+				width:35px;
+				height:20px;
+				border:1px solid #ccc;
+				vertical-align: middle;
+			}
+			.delete{
+				margin-left:10px;
+			}
+			.redcolor{
+				font-style: normal;
+				color:red;
+				font-weight: bold;
+			}
+			
+			div{
+				float:left;
+				padding:0 10px;
+			}
+			div:last-child{
+				float:right
+			}
+			.allPrice{
+				display:inline-block;
+				min-width:88px;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<table align='center' border="1" cellspacing="0" cellpadding="">
+				<thead>
+					<tr>
+						<td></td>
+						<td>商品</td>
+						<td>单价</td>
+						<td>数量</td>
+						<td>小计</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody >
+					<tr>
+						<td><input type="checkbox" class='item' name="item" id="" /></td>
+						<td><img src="img/index/1.jpg" alt="" /><span>卡西欧 EX-TR</span></td>
+						<td><span class='price'>5999.50</span></td>
+						<td>
+							<input type="button" value="-" class="minus"/>
+							
+							<span class="number">1</span>
+							<input type="button" value="+" class="add"/>
+						</td>
+						<td><span class='fee'>5999.50</span></td>
+						<td><a href="#" class='delItem'>删除</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" class='item' name="item" id="" /></td>
+						<td><img src="img/index/2.jpg" alt="" /><span>佳能 EX-TR</span></td>
+						<td><span class='price'>3888.50</span></td>
+						<td>
+							<input type="button" value="-" class="minus"/>
+							
+							<span class="number">1</span>
+							<input type="button" value="+" class="add"/>
+						</td>
+						<td><span class='fee'>3888.50</span></td>
+						<td><a href="#" class='delItem'>删除</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="item" class='item' id="" /></td>
+						<td><img src="img/index/3.jpg" alt="" /><span>索尼 EX-TR</span></td>
+						<td><span class='price'>1428.50</span></td>
+						<td>
+							<input type="button" value="-" class="minus"/>
+							
+							<span class="number">1</span>
+							<input type="button" value="+" class="add"/>
+						</td>
+						<td><span class='fee'>1428.50</span></td>
+						<td><a href="#" class='delItem'>删除</a></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" class='item'  name="item" id="" /></td>
+						<td><img src="img/index/4.jpg" alt="" /><span> 佳能？EX-TR</span></td>
+						<td><span class='price'>640.60</span></td>
+						<td>
+							<input type="button" value="-" class="minus"/>
+							
+							<span class="number">1</span>
+							<input type="button" value="+" class="add"/>
+						</td>
+						<td><span class='fee'>640.60</span></td>
+						<td><a href="#" class='delItem'>删除</a></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr  bgcolor="gainsboro" height="60px">
+						<td align="left" colspan="5" >
+							<div class='f-l'>
+								<input type="checkbox" name="" id="allin" />全选
+								<a href='#' class='delete'>删除</a>
+							</div>
+							<div class='f-l'>
+								<span>已选商品<i class='redcolor check'></i>件</span>
+								<span class=''>合计：&yen;<i class='redcolor allPrice'></i></span>
+							</div>
+						</td>
+						<td><a href="#">结算</a></td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+	</body>
+	<script src="js/buycar.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		window.onload=function(){
+		var mbtn=$('.minus');
+		var abtn=$('.add');
+		var checksbox=document.getElementsByName('item');
+		var del=$('.delete')[0];
+		var allin=$('#allin');
+		var delItem=$('.delItem');
+		allin.checked=true;
+		for(var i=0;i<checksbox.length;i++){
+			checksbox[i].onchange=res;
+		function res(){
+				var pieces=$('.check')[0];
+				var num=this.parentNode.parentNode.getElementsByClassName('number')[0];
+				var allPrice=document.getElementsByClassName('allPrice')[0];
+				var fee=this.parentNode.parentNode.getElementsByClassName('fee')[0];
+			if(this.checked){
+					pieces.innerHTML=(pieces.innerHTML*1)+(num.innerHTML*1);
+					allPrice.innerHTML=(allPrice.innerHTML*1+fee.innerHTML*1).toFixed(2);
+				}
+				else{
+				 pieces.innerHTML-=num.innerHTML;
+				 allPrice.innerHTML=(allPrice.innerHTML-fee.innerHTML).toFixed(2);
+				}
+			}
+		}
+		for(var i=0;i<delItem.length;i++){
+			delItem[i].onclick=function(){
+				delitem(this.parentNode.parentNode)
+			}
+		}
+		allin.onclick=function(){
+			if(this.checked){
+				for(var i=0;i<checksbox.length;i++){
+					checksbox[i].checked=true;
+					res.call(checksbox[i]);
+				}
+				init();
+			}
+			else{
+				for(var i=0;i<checksbox.length;i++){
+					checksbox[i].checked=false;
+					res.call(checksbox[i]);
+				}
+			}
+			
+		}
+		del.onclick=function(){
+			var pieces=$('.check')[0];
+			var allPrice=document.getElementsByClassName('allPrice')[0];
+			for(var i=0;i<checksbox.length;i++){
+				if(checksbox[i].checked){
+					delitem(checksbox[i].parentNode.parentNode)
+					i--;
+				}
+			}
+		}
+		
+		function delitem(tr){
+			var pieces=$('.check')[0];
+			var allPrice=document.getElementsByClassName('allPrice')[0];
+			pieces.innerHTML-=tr.getElementsByClassName('number')[0].innerHTML;
+			allPrice.innerHTML-=tr.getElementsByClassName('fee')[0].innerHTML;
+			allPrice.innerHTML=Number(allPrice.innerHTML).toFixed(2);
+			tr.remove();
+			
+		}
+		for(var i=0;i<mbtn.length;i++){
+			 mbtn[i].onclick=function(){
+			 		change(this,false);
+			}
+			 abtn[i].onclick=function(){
+			 		change(this,true);
+			 }
+		}
+		
+		init();
+		function init(){
+			var pieces=$('.check')[0];
+			var fee=$('.fee');
+			var allPrice=document.getElementsByClassName('allPrice')[0];
+			var all=0;
+			var pic=0;
+			var num=$('.number');
+			for(var i=0;i<fee.length;i++){
+				all+=+fee[i].innerHTML;
+				pic+=+(num[i].innerHTML);
+			}
+			allPrice.innerHTML=all;
+			pieces.innerHTML=pic;
+			for(var i=0;i<checksbox.length;i++){
+				checksbox[i].checked=true;
+			}
+		}
+			 function change(that,flag){
+			 		var num=$('.number',that.parentNode)[0];
+					var fee=$('.fee',that.parentNode.parentNode)[0];
+					var price=$('.price',that.parentNode.parentNode)[0];
+					var nowNum=Number(num.innerHTML);
+					var pieces=$('.check')[0];
+					var allPrice=document.getElementsByClassName('allPrice')[0];
+			 	if(flag){
+			 		num.innerHTML=++nowNum;
+			 		fee.innerHTML=(price.innerHTML*nowNum).toFixed(2);
+			 		if(that.parentNode.parentNode.getElementsByClassName('item')[0].checked){
+			 			pieces.innerHTML=++pieces.innerHTML;
+			 			allPrice.innerHTML=(Number(allPrice.innerHTML)+Number(price.innerHTML)).toFixed(2);
+			 		}
+			 		
+			 	}
+			 	else{
+			 		if(nowNum-1==0){
+			 			nowNum=1;
+			 		}
+			 		else{
+			 			nowNum--;
+			 			num.innerHTML=nowNum;
+						fee.innerHTML=(price.innerHTML*nowNum).toFixed(2);
+						if(that.parentNode.parentNode.getElementsByClassName('item')[0].checked){
+							pieces.innerHTML=--pieces.innerHTML;
+			 			allPrice.innerHTML=(Number(allPrice.innerHTML)-Number(price.innerHTML)).toFixed(2);
+						}
+			 			
+			 		}
+			 	}
+			 }
+		}
+		
+		
+	</script>
+</html>

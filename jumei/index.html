@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-route.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-animate.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/jumei.css"/>
+	</head>
+	<body>
+		<div ng-app="myApp" class="wrap">
+			<header><input type="text" placeholder="搜索商品 分类 功效" /><img src="img/center_feedback.png"/></header>
+		    <div class="page-content" >
+				<div ng-view class="home"></div>
+			</div>	
+		    <footer>
+		    	<ul>
+		    		<a href="#/home"><li><span><img src="img/111.png" class="homepic"/></span><p>首页</p></li></a>
+		    		<a href="#/pin"><li><span><img src="img/01.png"/></span><p>拼团</p></li></a>
+		    		<a href="#/buycar"><li><span><img src="img/02.png"/></span><p>购物车</p></li></a>
+		    		<a href="#/me"><li><span><img src="img/03.png"/></span><p>我的</p></li></a>
+		    	</ul>
+		    </footer>	
+		</div>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/controller.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

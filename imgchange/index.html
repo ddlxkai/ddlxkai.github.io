@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #061E40;
+			}
+			span{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background: url(img/start3.png)no-repeat;
+				animation: star 1s infinite;
+			}
+			@keyframes star{
+				from{opacity: 0;}
+				to{opacity: 1;}
+			}
+			span:hover{
+				transform: scale(3,3) rotate(180deg)!important;
+				transition: all 1s;
+			}
+			.hob1{
+				color: white;
+				position: absolute;
+				top: 100px;
+				left: 50px;
+			}
+			.hob2{
+				color: white;
+				position: absolute;
+				top: 180px;
+				right: 10px;
+			}
+			.hob3{
+				color: white;
+				position: absolute;
+				top: 320px;
+				left: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<span></span>
+		<div class="hob1">
+			<h2>兴趣爱好</h2>
+			<p>旅游，唱歌</p>
+		</div>
+		<div class="hob2">
+			<h2>学习途径</h2>
+			<p>视频类：网易云课堂，腾讯课堂等</p>
+			<p>资料类：GitHub，菜鸟教程，CNDS等</p>
+			<p>书籍：权威指南，红宝书</p>
+	    </div>
+	    <div class="hob3">
+			<h2>自我评价</h2>
+			<p>乐于挑战新鲜事物，思维活跃，热爱互联网和编程工作。</p>
+			<p>开发网站上，自学编程知识，并且培养编程思想，更加确定了对开发的热爱。</p>
+			<p>做事勤勉，目标明确。</p>
+	    </div>
+		<script type="text/javascript">
+			/*屏幕尺寸*/
+			let w = document.documentElement.clientWidth;
+			let h = document.documentElement.clientHeight;
+			for(let i=0;i<150;i++){
+				let span = document.createElement('span');
+				document.body.appendChild(span);
+				span.style.left=parseInt(Math.random()*w)+'px';
+				span.style.top=parseInt(Math.random()*h)+'px';
+				span.style.transform='scale('+Math.random()*1+','+Math.random()*1+')';
+				/*动画延迟*/
+				span.style.animationDelay=Math.random()*1.5+'s';
+			}
+			 
+		</script>
+	</body>
+</html>
+ 

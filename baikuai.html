@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: black;
+				text-align: center;
+			}
+			
+			#wrap {
+				background-color: white;
+				position: absolute;
+				width: 300px;
+				height: 600px;
+				left: 50%;
+				top: 10px;
+				margin-left: -150px;
+			}
+			
+			#btn {
+				background-color: rgba(128, 120, 120, 0.5);
+				position: absolute;
+				width: 300px;
+				height: 600px;
+				left: 50%;
+				top: 10px;
+				margin-left: -150px;
+				line-height: 60px;
+				background: url(img/xx.jpg) -462px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		/*参数left top width height fillRect填充芯 strokeRect画边框 clearRect清除图形*/
+		<canvas id="wrap" width="300" height="600"></canvas>
+		<div id="btn"><input type="button" name="" id="inpbtn" value="开始" /></div>
+		<script type="text/javascript">
+			/*整体思路			 
+			 * 先布局 
+			 * 根据整体宽高，指定行数列数  求出每个小方块的宽高
+			 * 通过遍历数组指定方块是黑还是白色的
+			 * 创建row+1个数组 wrap定位top=-blockH
+			 * （一共6个数组 将最上方的数组隐藏  下方消失一个 此时top值也为0了 就再讲top值还原并且最上方添加一个随机数组 ）
+			 * 实现：点击黑块将黑块变白  点击白块游戏结束 过去的一行中有黑色块没被消除 游戏结束
+			 *
+			 * */
+			let inpbtn = document.getElementById('inpbtn');
+			let btn = document.getElementById('btn');
+			let wrap = document.getElementById('wrap');
+			/*图形接口*/
+			let gd = wrap.getContext('2d');
+			/*获取盒子的宽高*/
+			const { width, height } = wrap;
+			/*r行数 c列数*/
+			const row = 5,
+				col = 5;
+			/*求出每个小方块的宽高*/
+			const blockW = width / col;
+			const blockH = height / row;
+			/*初始化topp值*/
+			let topp = -blockH;
+			let speed = 1;
+			let timer = null;
+			let data = [];
+			/*遍历的随机数据*/
+			function creatLine() {
+				let arr = [];
+				for(let i = 0; i < col; i++) {
+					arr[i] = 0
+				}
+				arr[Math.floor(Math.random() * col)] = 1
+				return arr;
+			}
+             /*绘制部分*/
+			function draw() {
+                /*clearRect清除图形*/
+				gd.clearRect(0, 0, width, height);
+				/*根据行和列创建黑白块*/
+				for(let r = 0; r < data.length; r++) {
+
+					for(let c = 0; c < data[r].length; c++) {
+						/*白块*/
+						if(data[r][c] == 0) {
+							gd.fillStyle = '#FFFFFF'
+
+						} else {
+							/*黑块*/
+							gd.fillStyle = '#000'
+						}
+						/*根据左右宽高创建创建*/
+						gd.fillRect(c * blockW, topp + r * blockH, blockW, blockH);
+						/*填充边框颜色*/
+						gd.strokeStyle = '#999';
+						/*根据方块填充边框*/
+						gd.strokeRect(c * blockW, topp + r * blockH, blockW, blockH);
+					}
+
+				}
+			}
+			/*初始化*/
+			function init() {
+				timer = null;
+				data = [];
+				speed = 1;
+				/*一共6个数组 将最上方的数组隐藏  下方消失一个 此时top值也为0了 就再讲top值还原并且最上方添加一个随机数组 */
+				topp = -blockH;
+				//创建data的数据 创建6个数组
+				for(let i = 0; i < row + 1; i++) {
+					data.push(creatLine());
+				}
+				timer = setInterval(function() {
+					topp += speed;
+					if(topp >= 0) {
+						/*删除末尾过去的一行*/
+						let delrow = data.pop();
+						data.unshift(creatLine());
+						/*让top值回归*/
+						topp = -blockH;
+						/*检测是否有黑色方块*/
+						if(delrow.includes(1)) {
+							alert('游戏结束');
+							btn.style.display = "block";
+							clearInterval(timer);
+						}
+					}
+					/*重新绘制*/
+					draw();
+				}, 16)
+			}
+			/*判断点击的是什么颜色的方块*/
+			wrap.onclick = function(event) {
+				let e = window.event || event;
+				/*找到当前鼠标点击的位置*/
+				let x = e.offsetX;
+				let y = e.offsetY - topp;
+				/*根据点击位置判断是在第几行第几列*/
+				let r = Math.floor(y / blockH);
+				let c = Math.floor(x / blockW);
+				/*判断是黑还是白块*/
+				if(data[r][c] == 0) {
+					alert('游戏结束');
+					clearInterval(timer);
+					btn.style.display = "block";
+				} else {
+					data[r][c] = 0;
+					speed += 0.1;
+				}
+				/*更新当前图画*/
+				draw()
+			}
+			inpbtn.onclick = function() {
+				btn.style.display = "none";
+				init();
+				draw();
+			}
+		</script>
+	</body>
+
+</html>

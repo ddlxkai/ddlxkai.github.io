@@ -1,0 +1,341 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.wrap{
+	max-width: 640px;
+	min-width: 320px;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+	box-sizing: border-box;
+}
+header{
+	text-align: center;
+	max-width: 640px;
+	min-width: 320px;
+	width: 100%;
+	margin:auto;
+	height: 44px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	background-color: white;
+}
+header input{
+	border: 1px solid #eee;
+	margin-top: 5px;
+	float: left;
+	width: 70%;
+	height: 40px;
+	margin-left: 5%;
+	border-radius: 20px;
+	padding-left: 80px;
+	box-sizing: border-box;
+	outline: none;
+	background: url(../img/aliwx_search_icon.png) no-repeat 30px 3px;
+	background-size: 28px 28px;
+}
+header img{
+	width: 34px;
+	height: 34px;
+	margin: 2px 10px;
+}
+footer{
+	margin:auto;
+	max-width: 640px;
+	min-width: 320px;
+	font-size: 14px;
+	background-color: white;
+	width: 100%;
+	height: 55px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	text-align: center;
+}
+footer p{
+	line-height: 20px;
+}
+footer a{
+	float: left;
+	width: 25%;
+	color: #666;
+}
+.homepic{
+	width: 23px;
+	height: 18px;
+	margin-bottom: 3px;
+	margin-top: 9px;
+}
+.page-content{
+	vertical-align: top;
+	
+	height: 100%;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.page-content img{
+	vertical-align: top;
+}
+.hometop{
+	margin-top: 40px;
+	height: 100px;
+}
+.hometop img{
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+.hometopl{
+	width: 20%;
+	float: left;
+}
+.hometopr{
+	width: 70%;
+	margin-left: 10%;
+	color: #666666;
+	float: left;
+}
+.hometitle{
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	color: black;
+}
+.homeprice{
+	margin-bottom: 2px;
+}
+.homeprice+p{
+	font-size: 12px
+}
+.homeprice span{
+	color: deeppink;
+	font-size: 18px;
+	margin-right: 10px;
+}
+.homeprice b{
+	color: deeppink;
+}
+.pintop{
+	margin-top: 50px;
+	width: 100%;
+	height: 150px;
+}
+.pininfor{
+	margin-bottom: 30px;
+	text-align: center;
+}
+.pintop img{
+	width: 100%;
+	height: 100%;
+}
+.pininfor img{
+	width: 160px;
+	height: 160px;
+}
+.twopeople{
+	color: deeppink;
+	margin: 0 5px;
+}
+.pinprice{
+	margin-top: 13px;
+	text-align: left!important;
+}
+.pinprice+div{
+	
+}
+.pinprice span{
+	font-size: 18px;
+	color: deeppink;
+	margin-right: 4px;
+}
+.pinprice+div{
+	text-align: left!important;
+	margin: 3px 3px;
+	font-size: 12px;
+	color: #666;
+}
+.pinprice button{
+	float: right;
+	background-color: deeppink;
+	width: 100px;
+	outline: none;
+	border: none;
+	height: 30px;
+	border-radius: 20px;
+	color: white;
+}
+.bottomp{
+	width: 100%;
+	height: 40px;
+}
+.hw{    
+	    
+		margin-top: 50px;
+		color: #666666;
+		padding:5px 0px;
+		box-sizing: border-box;
+	}
+	/*.hw p{
+		white-space: nowrap;
+		overflow: hidden;
+		
+	}*/
+	.hwtop{
+		height: 200px;
+	}
+	.hwtop img{
+		width: 300px;
+		height: 200px;
+		margin:auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50px;
+		margin-bottom: 15px;
+	}
+	.hwprice span{
+		color: deeppink;
+		font-size: 24px;
+		margin-right: 20px;
+	}
+	.hwprice+p{
+		color: deeppink;
+		margin: 10px 0;
+	}
+	.hwtitle span{
+		color: deeppink;
+	}
+	.yun span{
+		font-size: 13px;
+		margin-right: 5%;
+	}
+	.yun b{
+		color: black;
+		font-size: 12px;
+	}
+	.yun{
+		margin-top: 5px;
+	}
+	.hwping{
+		margin-top: 15px;
+		background-color: #F5F5F5;
+	}
+	.hwping>div{
+		background-color: white;
+	}
+	.hwpingtop{
+		padding: 10px 10px;
+		border-bottom: 1px solid #666666;
+		color: black;
+	}
+	.hwpininfor{
+		margin-top: 10px;
+		width: 100%;
+		height: 70px;
+	}
+	.hwpininfor img{
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		float: left;
+	}
+	.hwpininfor div{
+		float: left;
+		margin-left: 15px;
+	}
+	.hwping>p{
+		width: 100%;
+		height: 40px;
+	}
+	.pinginfor{
+		border-bottom: 1px solid #EEEEEE;
+		padding-bottom: 10px;
+	}
+	.pingall{
+		padding: 10px 0;
+	}
+	.pingall a{
+		display: block;
+		margin: 0 auto;
+		color: deeppink;
+		font-size: 18px;
+		margin-left: 27%;
+	}
+	.hwadd{
+		background-color: white;
+		width: 100%;
+		height: 126px;
+		padding-top: 10px;
+		margin-top: 15px;
+	}
+	.hwadd button{
+		width: 150px;
+		height: 34px;
+		border-radius: 20px;
+		background-color: deeppink;
+		border: 1px solid #EEEEEE;
+		color: white;
+		outline: none;
+		text-align: center;
+		margin-left: 50%;
+		transform: translate(-75px);
+	}
+	.dayday{
+		background-color: white;
+		margin: 10px 0;
+		height: 100px;
+	}
+	.daydayl{
+		float: left;
+		width: 40%;
+	}
+	.daydayr{
+		float: right;
+		width: 52%;
+		height: 100%;		
+	}
+	.daydayr img{
+		width: 100%;
+		height: 100%;
+	}
+	.daydayl h3{
+		color: black;
+		margin: 10px 0;
+	}
+	.inforul li{
+		float: left;
+		width: 33%;
+		text-align: center;
+		line-height: 40px;
+	}
+	.inforul{
+		overflow: hidden;
+		border-bottom: 1px solid #EEEEEE;
+	}
+	.bigimg{
+		vertical-align: bottom;
+		width: 100%;
+	}
+	.bigimg img{
+		vertical-align: baseline;
+	}
+	.bigimg0{
+		width: 100%;
+		height: 200px;
+	}
+	.bigimg1{
+		width: 100%;
+		vertical-align: bottom;		
+	}

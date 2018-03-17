@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--头部-->
+			<header>
+				<div class="head_addtop">+添加组员</div>
+				<div class="head_content">
+					<div class="head_name">
+						姓名：<input type="text" name="" id="" placeholder="请您选择姓名" class='inp_name'/>
+						<div class="isshow_name"></div>
+					</div>
+					<div>
+						性别：<input type="text" name="" id="" placeholder="请您选择性别" class='inp_sex'/>
+						<div class="isshow_sex">
+							<ul>
+								<li>男</li>
+								<li>女</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						年龄：<input type="text" name="" id="" placeholder="请您选择年龄" class='inp_age'/>
+						<div class="isshow_age"></div>
+					</div>
+					<div>
+						组名：<input type="text" name="" id="" placeholder="请您选择组名" class='inp_group'/>
+						<div class="isshow_group"></div>
+					</div>
+					<div class="head_file">上传头像：<input type="file" value="" class="file" id="fileimg"/><img src="img/upload.png" class="head_image"/></div>
+					<div><button class="head_add">确认添加</button></div>
+				</div>
+			</header>
+			<section>
+				<div><button>年龄排序</button><button>组别排序</button></div>
+				<table border="1px" cellspacing="1">
+					<thead>
+						<tr>
+							<th>选择</th><th>姓名</th><th>性别</th><th>年龄</th><th>组名</th><th>头像</th><th>操作</th>
+						</tr>
+					</thead>					
+					<tbody>
+						<tr>
+							<td><input type="radio" name="" id="" value="" /></td><td class="canChange1">刘丹丹</td><td class="canChange2">男</td><td class="canChange3">23</td><td class="canChange4">二组</td>
+							<td><img src="img/wyz.jpeg"/></td><td><button class="btn_del">删除</button><button class="btn_change">更改</button></td>
+						</tr>
+					</tbody>					
+				</table>
+				<div><span class="selectAll">全选</span><span class="cancelAll">取消全选</span><button class="delAll">选中删除</button></div>
+			</section>
+			<div class="wrap_change">
+			    <div class="new_name">
+					姓名：<input type="text" name="" id=""  class='inp_newname'/>
+					    <div class="isshow_newname" style="display: block;"></div>
+				</div>
+				<div>
+					性别：<input type="text" name="" id=""class='inp_newsex'/>
+					<div class="isshow_newsex">
+						<ul>
+							<li>男</li>
+							<li>女</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					年龄：<input type="text" name="" id="" class='inp_newage'/>
+					<div class="isshow_newage"></div>
+				</div>
+				<div>
+					组名：<input type="text" name="" id="" class='inp_newgroup'/>
+					<div class="isshow_newgroup"></div>
+				</div>
+				<div class="head_file">上传头像：<input type="file" name="" id="" value="" class="newfile"/><img src="img/upload.png" class="head_newimage"/></div>
+				<div><button class="close">关闭</button><button class="gengxin">更新</button></div>
+			</div>
+		</div>
+        <script type="text/javascript">
+        	var delAll=document.getElementsByClassName('delAll')[0];
+        	var cancelAll = document.getElementsByClassName('cancelAll')[0]
+        	var selectAll = document.getElementsByClassName('selectAll')[0];
+        	var newfile = document.getElementsByClassName('newfile')[0]
+        	var headNewimage=document.getElementsByClassName('head_newimage')[0]
+        	var gengxin= document.getElementsByClassName('gengxin')[0]
+        	var close = document.getElementsByClassName('close')[0]
+        	var inpNewage = document.getElementsByClassName('inp_newage')[0]; 
+        	var inpNewgroup = document.getElementsByClassName('inp_newgroup')[0]; 
+        	var inpNewname = document.getElementsByClassName('inp_newname')[0]; 
+        	var inpNewsex=document.getElementsByClassName('inp_newsex')[0]; 
+        	var wrapChange1 = document.getElementsByClassName('wrap_change')[0]
+        	var isshowNewgroup=document.getElementsByClassName('isshow_newgroup')[0]
+        	var isshowNewage=document.getElementsByClassName('isshow_newage')[0]
+        	var isshowNewname=document.getElementsByClassName('isshow_newname')[0]
+        	var isshowNewsex=document.getElementsByClassName('isshow_newsex')[0]
+        	var tbody = document.getElementsByTagName('tbody')[0]
+        	var headAdd=document.getElementsByClassName('head_add')[0]
+        	var headImage=document.getElementsByClassName('head_image')[0]
+        	var filesimg = document.getElementsByClassName('file')[0]
+        	var isshowSex=document.getElementsByClassName('isshow_sex')[0]
+        	var isshowGroup=document.getElementsByClassName('isshow_group')[0]
+        	var isshowAge=document.getElementsByClassName('isshow_age')[0]
+        	var isshowName=document.getElementsByClassName('isshow_name')[0]
+        	var inpAge = document.getElementsByClassName('inp_age')[0]; 
+        	var inpGroup = document.getElementsByClassName('inp_group')[0]; 
+        	var inpName = document.getElementsByClassName('inp_name')[0]; 
+        	var inpSex=document.getElementsByClassName('inp_sex')[0]; 
+        	/*当头部名字输入框被点击时*/
+        	inpName.onclick=function(){
+        		isshowName.style.display="block";
+        		isshowName.onclick=function(event){
+        			var e = window.event ||event;
+        			inpName.value=e.target.innerText;
+        			isshowName.style.display="none";
+        			
+        		}
+        		isshowSex.style.display="none";
+        		isshowGroup.style.display="none";
+        		isshowAge.style.display="none";
+        	}
+        	/*当头部性别输入框被点击时*/
+        	inpSex.onclick=function(){
+        		isshowSex.style.display="block";
+        		isshowSex.onclick=function(event){
+        			var e = window.event ||event;
+        			inpSex.value=e.target.innerText;
+        			isshowSex.style.display="none";
+        		}
+        		isshowGroup.style.display="none";
+        		isshowAge.style.display="none";
+        		isshowName.style.display="none";
+        	}
+        	/*当头部年龄输入框被点击时*/
+        	inpAge.onclick=function(){
+        		isshowAge.style.display="block";
+        		isshowAge.onclick=function(event){
+        			var e = window.event ||event;
+        			inpAge.value=e.target.innerText;
+        			isshowAge.style.display="none";
+        		}
+        		isshowGroup.style.display="none";
+        		isshowSex.style.display="none";
+        		isshowName.style.display="none";
+        	}
+        	/*当头部组别输入框被点击时*/
+        	inpGroup.addEventListener('click',function(){
+        		isshowGroup.style.display="block";
+        		isshowGroup.onclick=function(event){
+        			var e = window.event ||event;
+        			console.log(e.target.innerText);
+        			inpGroup.value=e.target.innerText;
+        			isshowGroup.style.display="none";
+        		}
+        		isshowAge.style.display="none";
+        		isshowSex.style.display="none";
+        		isshowName.style.display="none";
+        	})
+        	/*图片更改*/
+        	filesimg.onchange=function(){
+        		var files = filesimg.files[0];
+				//创建一个读取文件对象
+				var fr = new FileReader();
+				//将用户上传的文件转化
+				fr.readAsDataURL(files);
+				//监听文件加载完毕
+				fr.addEventListener("load",function(){
+					//取出图片的路径
+					var result = fr.result;
+					//创建图片对象
+					//为img设置src属性
+					headImage.src=result;
+				})
+        	}
+        	//全选
+        	selectAll.onclick=function(){
+        		var trs = tbody.getElementsByTagName('tr');
+        		for(var i=0;i<trs.length;i++){
+        			trs[i].children[0].children[0].checked=true
+        		}
+        	}
+        	//取消全选
+        	cancelAll.onclick=function(){
+        		var trs = tbody.getElementsByTagName('tr');
+        		for(var i=0;i<trs.length;i++){
+        			trs[i].children[0].children[0].checked=false;
+        		}
+        	}
+        	/*删除选中的所有*/
+        	delAll.onclick=function(){
+        		var trs = tbody.getElementsByTagName('tr');
+        		for(let i=0;i<trs.length;i++){
+        			if(trs[i].children[0].children[0].checked){
+        				trs[i].remove();
+        				i--;
+        			}
+        			
+        		}
+        	}
+        	/*确认添加按钮*/
+        	headAdd.onclick=function(){
+        		if(inpName.value=='' || inpSex.value=='' || inpAge.value=='' || inpGroup.value==''){
+        			return alert('请输入完整信息');
+        		}
+        		var tr = document.createElement('tr');
+        		tr.innerHTML=`
+        		    <td><input type="radio" name="" id="" value="" /></td>
+        		    <td class="canChange1">${inpName.value}</td>
+        		    <td class="canChange2">${inpSex.value}</td>
+        		    <td class="canChange3">${inpAge.value}</td>
+        		    <td class="canChange4">${inpGroup.value}</td>
+        		    <td><img src="${headImage.src}"/></td>
+        		    <td><button class="btn_del">删除</button><button class="btn_change">更改</button></td>
+        		`
+        		tbody.insertBefore(tr,tbody.children[0]);
+        		inpName.value=inpSex.value=inpAge.value=inpGroup.value=''
+        		headImage.src="img/upload.png";
+        		/*var files = filesimg.files[0];
+				console.log(files);*/
+				
+        	}
+        	//中间几项双击自行更改
+        	tbody.ondblclick=function(event){
+        		var e = window.event || event;
+        		if(e.target.className=='canChange1' || e.target.className=='canChange2'  ||e.target.className=='canChange3' || e.target.className=='canChange4'){
+        			var inp = '<input type="text" value="" onblur="bl(this)"/>'
+        			e.target.innerHTML=inp;
+        			console.log(inp)
+        		}
+        	} 
+        	/*中间单击更改按钮*/
+        	tbody.onclick=function(event){
+        		var e = window.event || event;
+        		/*删除按钮*/
+        		if(e.target.className=='btn_del'){
+        			e.target.parentNode.parentNode.remove();
+        		}
+        		/*更改按钮*/
+        		if(e.target.className=="btn_change"){       			
+        			wrapChange1.style.display='block';
+        			inpNewname.value=e.target.parentNode.parentNode.children[1].innerHTML;
+        			inpNewsex.value=e.target.parentNode.parentNode.children[2].innerHTML; 
+        			inpNewage.value=e.target.parentNode.parentNode.children[3].innerHTML; 
+        			inpNewgroup.value=e.target.parentNode.parentNode.children[4].innerHTML; 
+        			headNewimage.src=e.target.parentNode.parentNode.children[5].children[0].src		        		
+		        		isshowNewname.onclick=function(event){	        		
+		        			var e = window.event ||event;
+		        			console.log(e.target.innerText)
+		        			inpNewname.value=e.target.innerText;
+		        			isshowNewname.style.display="none";
+		        		}
+		        		inpNewsex.onclick=function(){
+			        		isshowNewsex.style.display="block";
+			        		isshowNewsex.onclick=function(event){
+			        			var e = window.event ||event;
+			        			inpNewsex.value=e.target.innerText;
+			        			isshowNewsex.style.display="none";
+			        		}
+			        	}
+		        		inpNewage.onclick=function(){
+			        		isshowNewage.style.display="block";
+			        		isshowNewage.onclick=function(event){
+			        			var e = window.event ||event;
+			        			inpNewage.value=e.target.innerText;
+			        			isshowNewage.style.display="none";
+			        		}
+			        	}
+		        		inpNewgroup.onclick=function(){
+			        		isshowNewgroup.style.display="block";
+			        		isshowNewgroup.onclick=function(event){
+			        			var e = window.event ||event;
+			        			inpNewgroup.value=e.target.innerText;
+			        			isshowNewgroup.style.display="none";
+			        		}
+			        	}
+		        		close.onclick=function(){
+		        			wrapChange1.style.display='none';
+		        		}
+		        		newfile.onchange=function(){
+        	            	var files = newfile.files[0];
+							//创建一个读取文件对象
+							var fr = new FileReader();
+							//将用户上传的文件转化
+							fr.readAsDataURL(files);
+							//监听文件加载完毕
+							fr.addEventListener("load",function(){
+								//取出图片的路径
+								var result = fr.result;
+								//创建图片对象
+								//为img设置src属性
+								headNewimage.src=result;
+							})
+        	            }
+        	            gengxin.onclick=function(){
+        	            	e.target.parentNode.parentNode.children[1].innerHTML=inpNewname.value;
+		        			e.target.parentNode.parentNode.children[2].innerHTML=inpNewsex.value; 
+		        			e.target.parentNode.parentNode.children[3].innerHTML=inpNewage.value; 
+		        			e.target.parentNode.parentNode.children[4].innerHTML=inpNewgroup.value; 
+		        			e.target.parentNode.parentNode.children[5].children[0].src=headNewimage.src; 
+		        			wrapChange1.style.display='none';
+        	            }
+        	            
+        		
+        		}
+        	}
+        	//onblur 函数
+	        function bl(ele){
+				if(ele.value==''){
+					 return alert('请正确输入');
+				}else{
+					ele.parentNode.innerHTML=ele.value;
+				}
+			}
+        	
+        	
+        	/*ajax请求*/
+        	var ajax = new XMLHttpRequest();				   
+		    ajax.open('GET',"js/class.json",true);
+		    //发送请求
+		    ajax.send(null);  
+		    //接受服务器响应数据
+		    ajax.onreadystatechange = function () {    	
+		    	//ajax.readyState监控请求状态 4请求已完成，且响应已就绪
+		    	if(ajax.readyState == 4){
+		    		//ajax.responseText 获得字符串形式的响应数据。
+		    		var data =JSON.parse(ajax.responseText);
+		    		var res=data.data;
+		    		isshowName.appendChild(allName(res.first));
+		    		isshowName.appendChild(allName(res.second));
+		    		isshowName.appendChild(allName(res.third));
+		    		isshowName.appendChild(allName(res.four));
+		    		isshowName.appendChild(allName(res.five));
+		    		isshowName.appendChild(allName(res.six));
+		    		isshowAge.appendChild(allAge(res.age));
+		    		isshowGroup.appendChild(allAge(res.group))
+		    		isshowNewname.appendChild(allName(res.first));
+		    		isshowNewname.appendChild(allName(res.second));
+		    		isshowNewname.appendChild(allName(res.third));
+		    		isshowNewname.appendChild(allName(res.four));
+		    		isshowNewname.appendChild(allName(res.five));
+		    		isshowNewname.appendChild(allName(res.six));
+		    		isshowNewage.appendChild(allAge(res.age));
+		    		isshowNewgroup.appendChild(allAge(res.group))
+		    	}
+		    };
+        	/*人名渲染*/
+	       function allName(names){
+		       var ul = document.createElement('ul');
+		    	for(let i=0;i<names.length;i++){
+	    			var li =document.createElement('li');
+	    			li.innerHTML=names[i].name;
+	    			ul.appendChild(li);				    			
+		    	}
+		    	return ul;
+		    }
+	       /*年龄组别渲染*/
+	        function allAge(ages){
+		       var ul = document.createElement('ul');
+		    	for(let i=0;i<ages.length;i++){
+	    			var li =document.createElement('li');
+	    			li.innerHTML=ages[i];
+	    			ul.appendChild(li);				    			
+		    	}
+		    	return ul;
+		    }
+        </script>
+	</body>
+
+</html>

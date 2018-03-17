@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.chatoptop{
+				background-color: #F0F0F0;
+			}
+			.swiper-container {
+				height: 260px;
+				margin: 0 auto;
+				width: 100%;
+				margin-top: 50px;
+				background-color: white;
+			}			
+			.swiper-container img {
+				width: 100%;
+				height: 100%;
+			}
+			.chatop{
+				background-color: white;
+				margin-top: 15px;
+			}
+			.chatopprice b{
+				color: deeppink;
+				font-size: 25px;
+			}
+			.chatopprice del{
+				color: #666666;
+				margin-left: 20px;
+			}
+			.sale{
+				margin-top: 5px;
+				text-align: right;
+				color: #666666;
+				font-size: 14px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #EEEEEE;
+			}
+			.jianjie{
+				padding: 10px 5px;
+				border-bottom: 1px solid #EEEEEE;
+			}
+			.adres{
+				padding: 10px 5px;
+				border-bottom: 1px solid #EEEEEE;
+			}
+			.adres span{
+				color: #666666;
+			}
+			.adres b{
+				font-weight: 500;
+				margin-left: 20px;
+			}
+			.chapinglun{
+				background-color: white;
+				margin-top: 10px;
+				margin-bottom: 20px;
+				padding: 10px 5px;
+				border-bottom: 1px solid #EEEEEE;
+			}
+			.chapinglun>div>div{
+				margin-top: 20px;
+				float: left;
+				margin-left: 20px;
+			}
+			.chapinglun>div>div img{
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+			}
+			.chapinglun>div{
+				overflow: hidden;
+			}
+			.chapinglun>div>div>p{
+				color: #666666;
+				font-size: 15px;
+				margin-top: 10px;
+			}
+			.chapl{
+				padding-bottom: 10px;
+				margin-top: 20px;
+				border-bottom: 1px solid #EEEEEE;
+			}
+			.chapl+div{
+				color: deeppink;
+				font-size: 20px;
+				text-align: center;
+				margin-top: 12px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chatoptop">
+			<!--书写DOM结构-->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img ng-src="{{homeINfor.coffeimg2}}"/>
+					</div>
+					<div class="swiper-slide">
+						<img ng-src="{{homeINfor.coffeimg3}}"/>
+					</div>
+					<div class="swiper-slide">
+						<img ng-src="{{homeINfor.img}}"/>
+					</div>
+				</div>			
+				<!--添加小圆按钮-->
+				<div class="swiper-pagination">
+					
+				</div>
+			</div>
+			<div class="chatop">
+				<p class="chatopprice"><b>¥{{homeINfor.price}}</b><del>¥{{homeINfor.delprice}}</del></p>
+			    <p class="sale">月销{{homeINfor.sale}}</p>
+			    <p class="jianjie">【{{homeINfor.jian}}】{{homeINfor.jie}}</p>
+			    <p class='adres'><span>地址</span><b>至石家庄长安区</b></p>
+			    <p class='adres'><span>运费</span><b>本商品单件包邮</b></p>
+			    <p class='adres'><span>说明</span><b>24小时内发货 不支持退货 不可换货 支持分期</b></p>
+			</div>
+			<div class="chapinglun">
+				<p>买过的人这样说</p>
+				<div class="">
+					<div><img ng-src="{{homeINfor.chaping}}"/></div>
+					<div><b>{{homeINfor.chani}}</b><p>加入聚美{{homeINfor.joincha}}天</p></div>
+				</div>
+				<div class="chapl">{{homeINfor.chapl}}</div>
+				<div>查看全部{{homeINfor.Allping}}条评价</div>
+			</div>
+			<div class="hwadd">
+    		<div class="hwpininfor">
+	    		<img ng-src="{{homeINfor.logo}}"/>
+	    		<div>
+	    			<span style="color: black;">{{homeINfor.logotitle}}</span>
+	    			<p style="font-size: 12px;margin-top: 8px;">{{homeINfor.logoadd}}</p>
+	    		</div>	    		
+	    	</div>
+	    	<button>进入店铺  →</button>
+    	</div>
+    	<div>
+    		<ul class="inforul">
+	    		<li>图文详情</li>
+	    		<li>商品参数</li>
+	    		<li>评价</li>
+	    	</ul>
+	    	<div class="bigimg">
+	    	 	<img ng-src="{{homeINfor.bigimg}}" class="bigimg0"/>
+	    	 	<img ng-src="{{homeINfor.bigimg1}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg2}}" class="bigimg1"/>
+	            <img ng-src="{{homeINfor.bigimg3}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg4}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg5}}" class="bigimg1"/>
+	            <img ng-src="{{homeINfor.bigimg6}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg7}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg8}}" class="bigimg1"/>
+	            <img ng-src="{{homeINfor.bigimg9}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg10}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg11}}" class="bigimg1"/>
+	            <img ng-src="{{homeINfor.bigimg12}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg13}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg14}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg15}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg16}}" class="bigimg1"/>
+	            <img ng-src="{{homeINfor.bigimg17}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg18}}" class="bigimg1"/>
+	    		<img ng-src="{{homeINfor.bigimg19}}" class="bigimg1"/>
+	            <img ng-src="{{homeINfor.bigimg20}}" class="bigimg1"/>	    		
+	    		<img ng-src="{{homeINfor.bigimg21}}" class="bigimg1"/>
+	    	</div>
+    	</div>
+			<p class="bottomp"></p>
+		</div>			
+	</body>
+</html>

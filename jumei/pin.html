@@ -1,0 +1,20 @@
+<div class="pintop">
+	<img src="img/17.jpg"/>
+</div>
+<div class="pininfor" ng-repeat="item in pin" ng-click="dealClick(item)">
+	<img src="{{item.img}}"/>
+	<div class="tuan">
+		<b class="twopeople">[2人团]</b>【手机专享】<span>{{item.title}}</span>
+	</div>
+	<div class="pinprice"><span>￥{{item.price}}</span><del>￥{{item.delprice}}</del><button>去开团</button></div>
+	<div>单买价￥{{item.only}}</div>
+</div>
+<div class="pininfor" ng-repeat="item in pin" ng-click="dealClick(item)">
+	<img src="{{item.img}}"/>
+	<div class="tuan">
+		<b class="twopeople">[2人团]</b>【手机专享】<span>{{item.title}}</span>
+	</div>
+	<div class="pinprice"><span>￥{{item.price}}</span><del>￥{{item.delprice}}</del><button>去开团</button></div>
+	<div>单买价￥{{item.only}}</div>
+</div>
+<p class="bottomp"></p>
