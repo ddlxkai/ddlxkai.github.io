@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iconfont.js" type="text/javascript" charset="utf-8"></script>
+		<script src="component/change.js" type="text/javascript" charset="utf-8"></script>
+		<script src="component/rou.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--头部-->
+			<header>
+				<div class="hl">
+					<span>
+						<a href="#">
+							<svg class="icon" aria-hidden="true">
+	                           <use xlink:href="#icon-fenlei"></use>
+	                        </svg>
+						</a>
+					</span> 狐友圈
+				</div>
+				<div></div>
+				<div class="hr">
+					<a href="search.html">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-sousuo"></use>
+						</svg>
+					</a>
+					<a href="personceter.html">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-yonghu"></use>
+						</svg>
+					</a>					
+				</div>
+			</header>
+			<nav class="nav_li">				
+				<router-link to="/index">狐报</router-link>
+				<router-link to="/faxian">狐说</router-link>
+				<router-link to="/quanzi">我狐</router-link>	
+			</nav>
+			<router-view></router-view>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				
+			},
+			router:rou,
+			methods:{
+				
+			}
+		})
+	</script>
+</html>

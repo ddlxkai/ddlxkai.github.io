@@ -1,0 +1,94 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+body{
+	background-color: #EEEEEE;
+}
+.box{
+	margin: 0 auto;
+	max-width: 640px;
+	min-width: 320px;
+	width: 100%;
+}
+header{
+	background-color: white;
+	width: 100%;
+	border-bottom: 1px solid #EFEFEF;
+	height: 44px;
+	
+}
+header>div{	
+	height: 44px;
+	line-height: 44px;
+	width: 33.33%;
+	float: left;
+	text-align: center;
+}
+.hr{
+	padding-right: 10px;
+	text-align: right;
+	box-sizing: border-box;
+	color: #A5D4B2;
+}
+.hl{
+	text-align: left;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+.hl>a{
+	text-decoration: none;
+	color: black;!0
+}
+.hl>a>span{
+	display: inline-block;
+	width: 25px;
+	height: 30px;
+	background: url(../img/icon/arrow.png) no-repeat 0px 15px;
+	background-size: 82% 55%;
+}
+nav{
+	width: 100%;
+	background-color: white;
+	height: 44px;
+}
+nav>div{
+	float: left;
+	width: 50%;
+	
+	line-height: 44px;
+	text-align: center;
+}
+section{
+	width: 100%;
+	height: 100%;
+	
+}
+section>div{
+	display: none;
+}
+section>div>div{
+	margin: 0 auto;
+	margin-top: 100px;
+	margin-bottom:30px;
+	width: 103px;
+	height: 103px;
+	background: url(../img/icon/no_content.png) no-repeat 0px -104px;
+	background-size: 100%;
+}
+section>div>p{
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	color: #909192;
+}
+.active{
+	color: #35B400;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/search.css" />
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--头部-->
+			<header>
+				<div class="hl">
+					<a href="javascript:history.back();"><span></span>返回</a>
+				</div>
+				<div>搜索</div>
+				<div class="hr"></div>
+			</header>
+			<!--搜索框-->
+			<nav><input type="text" name="" id="search" placeholder="请输入圈名" /><button class="btnSearch">搜索</button></nav>
+			<!--内容-->
+			<section>
+				<!--搜索页-->
+				<aside>
+					<ul>
+						<li>杨晨</li>
+						<li>陈奕迅</li>
+						<li>周志远</li>
+						<li>张健</li>
+						<li>章子怡</li>
+						<li>宋伟</li>
+					</ul>
+					<p><img src="img/icon/change.png" />换一换</p>
+					<ol>
+					</ol>
+					<div><a href="Javascript:;" class="clear"><img src="img/icon/dustbin.png" /> 清空历史记录</a></div>
+				</aside>
+				<!--搜索列表-->
+				<article>
+					<h4>我是搜索内容<span></span>相关的第<b>1</b>条数据</h4>
+					<h4>我是搜索内容<span></span>相关的第<b>2</b>条数据</h4>
+					<h4>我是搜索内容<span></span>相关的第<b>3</b>条数据</h4>
+					<h4>我是搜索内容<span></span>相关的第<b>4</b>条数据</h4>
+					<h4>我是搜索内容<span></span>相关的第<b>5</b>条数据</h4>
+					<h4>我是搜索内容<span></span>相关的第<b>6</b>条数据</h4>
+				</article>
+				<!--搜索结果-->
+				<nav>
+					<div class="fl imgfl">
+						<img src="img/find/atg.jpeg" class="changeimg"/>
+					</div>
+					<div class="fr content">
+						<h4>我是搜索内容<span class="innerVlue"></span>相关的第<a href="#" class="numTiao">1</a>条数据</span></h4>
+						<div>我是搜索内容<span class="innerVlue"></span>相关的第<a href="#" class="numTiao">1</a>条数据</div>
+						<div>
+							<div class="fl"><span>1498</span><b>圈友</b></div>
+							<div class="fl"><span>49</span><b>帖子</b></div>								
+						</div>
+					</div>
+				</nav>
+			</section>
+		</div>
+		<script type="text/javascript">
+			var ol = document.getElementsByTagName('ol')[0];			
+			var search = document.getElementById('search');
+			var article = document.getElementsByTagName('article')[0];
+			var nav = document.getElementsByTagName('nav')[1];
+			var span = article.getElementsByTagName('span');
+			var aside = document.getElementsByTagName('aside')[0]
+			var btnSearch =document.getElementsByClassName('btnSearch')[0];		
+			//历史记录渲染内容
+			for(var i=0;i<4;i++){
+				if(localStorage.getItem('value'+i)!=null){
+					ol.innerHTML+='<li><img src="img/icon/time.png" />'+(localStorage.getItem('value'+i))+'</li>'
+				}
+			}
+			/*输入框改变*/
+			search.oninput = function() {
+				aside.style.display="none"
+				article.style.display="block"
+				for(var i = 0; i < span.length; i++) {
+				span[i].innerHTML = search.value;
+			   }
+			}
+			/*点击搜索按钮*/
+			btnSearch.onclick=function(){
+				/*判断搜索框的内容是否为空*/
+				if(search.value==''){
+					return alert('请输入要搜索的内容')
+				}
+				/*搜索结果页面内容改变*/
+				var innerVlue=document.getElementsByClassName('innerVlue');
+				innerVlue[0].innerHTML=search.value;
+			    innerVlue[1].innerHTML=search.value;
+				/*插入历史记录*/
+				history();				
+				nav.style.display="block"
+				article.style.display="none"
+			}
+			//清空历史记录
+			var clear = document.getElementsByClassName('clear')[0];
+			clear.onclick=function(){
+				ol.innerHTML='';
+				localStorage.clear();
+			}
+			//点击第几条数据
+			article.onclick=function(event){
+				var e = event || window.event;	
+				var changeimg = document.getElementsByClassName('changeimg')[0];
+				var b1=e.target.getElementsByTagName('b')[0];
+				console.log(b1);
+				var b = b1.innerHTML;
+				var arrImg=['img/find/atg.jpeg','img/find/atg1.jpeg','img/find/atg2.jpeg','img/find/atg3.jpeg','img/find/qy.jpeg','img/find/qy1.jpeg']
+			    var numTiao = document.getElementsByClassName('numTiao');
+			    changeimg.src=arrImg[b-1];
+			    numTiao[0].innerHTML=b;
+			    numTiao[1].innerHTML=b;
+			    var innerVlue=document.getElementsByClassName('innerVlue');
+				innerVlue[0].innerHTML=search.value;
+			    innerVlue[1].innerHTML=search.value;
+			    history();
+			    nav.style.display="block"
+				article.style.display="none"
+			
+			}
+			/*封装插入历史记录*/
+			function history(){
+				var li = document.createElement('li');
+				li.innerHTML='<img src="img/icon/time.png" />'+search.value;
+				ol.insertBefore(li,ol.firstElementChild);
+				if(ol.children.length>3){
+					ol.lastElementChild.remove();
+				}
+				for(var i=0;i<ol.children.length;i++){
+					localStorage.setItem('value'+[i],ol.children[i].innerText)
+				}
+			}
+				
+		</script>
+	</body>
+
+</html>

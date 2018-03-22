@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			body {
+				color: white;
+				background-color: #061E40;
+				overflow: hidden;
+			}
+			
+			#box {
+				width: 500px;
+				height: 500px;
+				margin: 100px auto;
+				transform-style: preserve-3d;
+			}
+			
+			#box>div {
+				position: absolute;
+				background-color: black;
+				transform: perspective(800px);
+			}
+			
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			span {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background: url(image/start3.png) no-repeat;
+				animation: star 1s infinite;
+			}
+			
+			@keyframes star {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			
+			span:hover {
+				transform: scale(3, 3) rotate(180deg)!important;
+				transition: all 1s;
+			}
+			.hob1{
+				position: absolute;
+				top: 100px;
+				left: 50px;
+			}
+			.hob2{
+				position: absolute;
+				top: 180px;
+				right: 10px;
+			}
+			.hob3{
+				position: absolute;
+				top: 518px;
+				left: 85px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="hob1">
+			<h2>为什么崇拜搜狐</h2>
+			<p>互联网从这里开始</p>
+			<p>20年你们也整理行囊再出发</p>
+			<p>起起伏伏，我只看到一直奋勇向前的你们</p>
+			<p>这是我认为的正能量</p>
+		</div>
+		<div class="hob2">
+			<h2>就是单纯的欣赏张朝阳</h2>
+			<p>我欣赏他面对镜头不伪装不逃避</p>
+			<p>我欣赏他乐观积极永远不后退</p>
+			<p>我欣赏他把生活活成了自己想要的样子</p>
+			<p>我欣赏他不怕从头再来</p>
+	    </div>
+	    <div class="hob3">
+			<h2>关于我</h2>
+			<p>我想像搜狐一样，尽管一路坎坷，但勇往直前</p>
+			<p>从最开始的认识励志的大鹏就已经开始关注搜狐，后来又喜欢上可爱的大BOSS张朝阳</p>
+			<p>谢谢你们的故事，激励着像我一样的人</p>
+	    </div>
+		<span></span>
+		<div id="box">
+
+		</div>
+		<script>
+			/*控制照片*/
+			var num = 0;
+			boom()
+
+			function boom() {
+				var box = document.getElementById('box');
+				//指定行数和列数
+				var x = 10;
+				var y = 10;
+				/*照片数组*/
+				var arr = ['url(image/20.jpg)', 'url(image/21.jpg)', 'url(image/22.jpg)', 'url(image/23.jpg)', 'url(image/24.jpg)', 'url(image/25.jpg)', 'url(image/26.jpg)', 'url(image/27.jpg)', 'url(image/28.jpg)', 'url(image/29.jpg)', 'url(image/30.jpg)', 'url(image/31.jpg)', 'url(image/32.jpg)', 'url(image/33.jpg)', 'url(image/34.jpg)', 'url(image/35.jpg)', 'url(image/36.jpg)', 'url(image/37.jpg)', 'url(image/38.jpg)']
+                /*根据行数和列数创建div放背景图*/
+				for(var i = 0; i < x; i++) {
+					for(var j = 0; j < y; j++) {
+						/*创建div接收背景图*/
+						var litdiv = document.createElement('div');
+						/*引入背景图片*/
+						litdiv.style.background = arr[num];
+						/*控制背景图片的大小*/
+						litdiv.style.backgroundSize = '500px 500px';
+						/*根据整个盒子的宽度/行数计算出每个盒子的宽度*/
+						litdiv.style.width = box.clientWidth / x + 'px';
+						litdiv.style.height = box.clientHeight / x + 'px';
+						/*根据当前盒子所在整个盒子的位置关系算出当前div的位置*/
+						litdiv.style.left = (box.clientWidth / x) * j + 'px';
+						litdiv.style.top = (box.clientHeight / y) * i + 'px';
+						/*根据当前盒子所在整个盒子的位置关系算出当前div的背景图位置*/
+						litdiv.style.backgroundPositionX = (box.clientWidth / x) * -j + 'px';
+						litdiv.style.backgroundPositionY = (box.clientHeight / y) * -i + 'px';
+						/*让当前div有过渡效果*/
+						litdiv.style.transition = (Math.random() * 1 + 0.5) + 's';
+						/*添加到大的盒子中*/
+						box.appendChild(litdiv)
+					}
+				}
+				/*获取所有子元素*/
+				var alllitdiv = box.children;
+				setTimeout(function() {
+					/*旋转位移*/
+					for(var i = 0; i < alllitdiv.length; i++) {
+						alllitdiv[i].style.transform = 'perspective(800px) rotateX(' + Math.random() * 361 + 'deg) rotateY(' + Math.random() * 361 + 'deg) translateY(' + (Math.random() * 400 - 200) + 'px) translateX(' + (Math.random() * 400 - 200) + 'px) translateZ(' + (Math.random() * 200 + 100) + 'px)'
+						alllitdiv[i].style.opacity = 0;
+
+					}
+				}, 1500)
+				/*判断照片轮播到哪一张*/
+				if(num >= arr.length - 1) {
+					num = 0;
+				} else {
+					num++;
+				}
+
+			}
+			setInterval(function() {
+				boom();
+			}, 3000)
+			/*星星背景*/
+			/*屏幕尺寸*/
+			let w = document.documentElement.clientWidth;
+			let h = document.documentElement.clientHeight;
+			for(let i = 0; i < 150; i++) {
+				let span = document.createElement('span');
+				document.body.appendChild(span);
+				span.style.left = parseInt(Math.random() * w) + 'px';
+				span.style.top = parseInt(Math.random() * h) + 'px';
+				span.style.transform = 'scale(' + Math.random() * 1 + ',' + Math.random() * 1 + ')';
+				/*动画延迟*/
+				span.style.animationDelay = Math.random() * 1.5 + 's';
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/pcdetail.css" />
+	</head>
+
+	<body>
+		<div class="box">
+			<header>
+				<div class="hl">
+					<a href="javascript:history.back();"><span></span>返回</a>
+				</div>
+				<div>个人中心</div>
+				<div></div>
+			</header>
+			<section>
+				<div class="tool"><img src="img/icon/tool.png" /></div>
+				<div class="ifpic">
+					<div class="topimg">
+						<img src="img/avatar/3.jpeg" class="perpic" />
+						<div class="perpic2">
+							<a href="javascript:;"><img src="img/icon/man.png" class="persex" /></a>
+						</div>
+					</div>
+					<p class="username">杨老师</p>
+					<p><span class="attention">0关注</span><span>0粉丝</span></p>
+					<p><span>这家伙很懒，什么都没有留下</span></p>
+					<div class="dong">
+						<div>
+							<p class="active">动态</p>
+						</div>
+						<div>
+							<p>兴趣</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="section">
+				<div class="sectiontop">
+					<div class="new">最新动态</div>
+					<div class="all">全部动态<img src="img/icon/arrow.png" class="arrow" /></div>
+					<ul>
+						<a href="#">
+							<li class="allactive">全部动态</li>
+						</a>
+						<a href="#">
+							<li>帖子</li>
+						</a>
+						<a href="#">
+							<li>评论</li>
+						</a>
+						<a href="#">
+							<li>书单</li>
+						</a>
+						<a href="#">
+							<li>书评</li>
+						</a>
+					</ul>
+					<div class="sectionbottom">
+						<img src="img/icon/txt.png" />
+						<p>没有发表任何内容</p>
+					</div>
+				</div>
+			</div>
+			<div class="sectiontop2">
+				<div class="snav">
+					<div>关注的圈子</div>
+					<div>
+						<a href="#">全部圈子<img src="img/icon/arrow.png" class="arrow" /></a>
+					</div>
+				</div>
+				<ul>
+					<a href="#">
+						<li><img src="img/avatar/3.jpeg" />
+							<p>软软其实软软其实</p>
+						</li>
+					</a>
+					<a href="#">
+						<li><img src="img/avatar/3.jpeg" />
+							<p>软软其实软软其实</p>
+						</li>
+					</a>
+					<a href="#">
+						<li><img src="img/avatar/3.jpeg" />
+							<p>软软其实软软其实</p>
+						</li>
+					</a>
+					<a href="#">
+						<li><img src="img/avatar/3.jpeg" />
+							<p>软软其实软软其实</p>
+						</li>
+					</a>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var all = document.getElementsByClassName('all')[0];
+			var img = all.getElementsByTagName('img')[0];
+			var ul = document.getElementsByTagName('ul')[0];
+			var lis = ul.getElementsByTagName('li');
+			var flag = true;
+			all.onclick = function() {
+				if(flag) {
+					img.style.transform = 'rotate(270deg)';
+					ul.style.display = 'block';
+					flag = false;
+				} else {
+					img.style.transform = 'rotate(90deg)';
+					ul.style.display = 'none';
+					flag = true;
+				}
+
+			}
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].index = i
+				lis[i].onclick = function() {
+					for(var j = 0; j < lis.length; j++) {
+						lis[j].className = '';
+					}
+					lis[this.index].className = 'allactive'
+				}
+			}
+			var dong = document.getElementsByClassName('dong')[0];
+			var p = dong.getElementsByTagName('p');
+			var section = document.getElementsByClassName('section')[0];
+			var sectiontop2 = document.getElementsByClassName('sectiontop2')[0];
+			p[0].onclick = function() {
+				p[0].className = 'active';
+				p[1].className = '';
+				section.style.display = 'block';
+				sectiontop2.style.display = 'none'
+			}
+			p[1].onclick = function() {
+				p[1].className = 'active';
+				p[0].className = '';
+				section.style.display = 'none';
+				sectiontop2.style.display = 'block'
+			}
+		</script>
+	</body>
+
+</html>
