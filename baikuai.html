@@ -4,28 +4,33 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<style type="text/css">
 			body {
 				background-color: black;
 				text-align: center;
 			}
-			
-			#wrap {
-				background-color: white;
-				position: absolute;
-				left: 50%;
-				top: 10px;
-				margin-left: -250px;
+			.wrapOut{
+				min-width: 320px;
+				max-width: 640px;
+				margin: 0 auto;
+				height: 100%;
+				overflow: hidden;
+				position: relative;
 			}
+			#wrap {
+				background-color: white;		}
 			
 			#btn {
 				background-color: rgba(128, 120, 120, 0.5);
 				position: absolute;
 				width: 500px;
-				height: 700px;
-				left: 50%;
-				top: 10px;
-				margin-left: -250px;
+				height: 600px;
+				left: 0;
+				top: 0;
+				right: 0;
+				margin: auto;
+				/*margin-left: -250px;*/
 				line-height: 60px;
 				background: url(img/xx.jpg)no-repeat 0 0;
 				background-size: 100% 100%;
@@ -34,9 +39,12 @@
 	</head>
 
 	<body>
-		/*参数left top width height fillRect填充芯 strokeRect画边框 clearRect清除图形*/
-		<canvas id="wrap" width="500" height="700"></canvas>
+		<div class="wrapOut">
+			/*参数left top width height fillRect填充芯 strokeRect画边框 clearRect清除图形*/
+		<canvas id="wrap" width="500" height="600"></canvas>
 		<div id="btn"><input type="button" name="" id="inpbtn" value="开始" /></div>
+		</div>
+		
 		<script type="text/javascript">
 			/*整体思路			 
 			 * 先布局 

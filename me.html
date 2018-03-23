@@ -1,20 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<style type="text/css">
-			.wrap{
-				width: 100%;
-				height: 300px;
-				display: flex;
-				
-			}
+
 		</style>
 	</head>
+
 	<body>
-		
-		
-		
+		<!--巨幕-->
+		<div class="jumbotron bg-info">
+			<div class="container">
+				<h1>让技术有温度</h1>
+				<p class="bg-danger" style="padding-left: 50px;color: white;">我的技术博</p>
+				<p class="bg-danger" style="text-align: center;color: white;">学习使我快乐</p>
+			</div>
+
+		</div>
+		<!--分区-->
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3>多的是你不知道的事</h3>
+						<p>整理一下，都是知识！</p>
+						<p>
+							你真的知道选择器的权值吗？
+						</p>
+						<p>我们熟知的选择器权值大概是类似于id选择器100，class选择器10。但大多数程序员都不知道，他们真实的权值是256进制的，这就是为什么就算你有11个class选择器的权值也超不过id选择器的原因，无聊的你可以试试</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3>多的是你不知道的事</h3>
+						<p>整理一下，都是知识！</p>
+						<p>
+							你真知道什么是闭包吗？
+						</p>
+						<p>js高级程序设计解释说：有权访问另一个函数作用域中的变量函数<br />
+百度百科说：闭包就是能够读取其他函数内部变量的函数。由于在javascript中，只有函数内部的子函数才能读取局部变量，所以闭包可以理解成“定义在一个函数内部的函数“<br /><br />
+js语言精髓与编程实践说：函数闭包。闭包则是函数的代码在运行过程中的一个动态环境，是一个运行期的、动态的概念。(AO)”<br />
+JS权威指南说：函数体内的变量存在函数作用域内就是闭包. 
+</p>
+                        <p>我说：闭包是将函数内部和函数外部连接起来的桥梁</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3>多的是你不知道的事</h3>
+						<p>整理一下，都是知识！</p>
+						<p>
+							什么是区块链？扫盲
+						</p>
+						<p>首先，区块链主要作用是存储信息，任何需要保存的信息，都可以写入区块链，也可以从里面读取，所有他是数据库<br />其次，任何人都可以架设服务器，加入区块链网络，成为一个节点，区块链的世界里面没有中心节点，每个节点都是平等的<br />最后，其最大的特点是区块链没有管理员，他是彻底无中心的</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3>多的是你不知道的事</h3>
+						<p>整理一下，冷知识</p>
+						<p>
+							神秘的第二个参数
+						</p>
+						<p>直接上代码： window.getComputedStyle(元素节点，null).样式名称<br />从来只知道第二个参数默认为null就好啦，管他是啥呢，也没人知道到底是放啥参数，来，涨知识！用来获取伪元素的样式表的~~例：window.getComputedStyle('div','after').width 自己试试吧~~</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3>未完待续。。。</h3>
+						<!--<p>整理一下，冷知识</p>
+						<p>
+							你真的知道选择器的权值吗？
+						</p>
+						<p>我们熟知的选择器权值大概是类似于id选择器100，class选择器10。但大多数程序员都不知道，他们真实的权值是256进制的，这就是为什么就算你有11个class选择器的权值也超不过id选择器的原因，无聊的你可以试试</p>-->
+					</div>
+				</div>
+			</div>
+			<!--<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div class="caption">
+						<h3>多的是你不知道的事</h3>
+						<p>整理一下，冷知识</p>
+						<p>
+							你真的知道选择器的权值吗？
+						</p>
+						<p>我们熟知的选择器权值大概是类似于id选择器100，class选择器10。但大多数程序员都不知道，他们真实的权值是256进制的，这就是为什么就算你有11个class选择器的权值也超不过id选择器的原因，无聊的你可以试试</p>
+					</div>
+				</div>
+			</div>-->
+		</div>
 	</body>
+
 </html>
